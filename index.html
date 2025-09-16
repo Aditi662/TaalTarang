@@ -12,23 +12,42 @@
     />
   </head>
   <body>
-    <!-- ================= NAVBAR ================= -->
+     <!-- ================= NAVBAR ================= -->
     <nav class="navbar">
       <div class="nav-container">
-        <a href="/index.html" class="logo">
+        <a href="index.html" class="logo">
           <img
             src="./assets/Logo/DLogo.png"
             alt="TaalTarang Logo"
             style="height: 50px"
           />
         </a>
-        <ul class="nav-links">
+
+        <!-- Hamburger Button -->
+        <div class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Desktop Nav Links -->
+        <ul class="nav-links desktop">
           <li><a href="#hero">Home</a></li>
           <li><a href="#dance-forms">Dance Forms</a></li>
           <li><a href="#contact-us">Contact Us</a></li>
         </ul>
       </div>
     </nav>
+
+    <!-- ================= MOBILE MENU PANEL ================= -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="close-btn" id="close-btn">
+        <i class="fas fa-times"></i>
+      </div>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#dance-forms">Dance Forms</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
+      </ul>
+    </div>
 
     <main>
       <!-- ================= HERO SECTION ================= -->
@@ -422,5 +441,28 @@
         </div>
       </div>
     </section>
+
+ <script>
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeBtn = document.getElementById("close-btn");
+
+      // Open menu
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.add("active");
+      });
+
+      // Close menu
+      closeBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+      });
+
+      // Close on link click (optional)
+      document.querySelectorAll(".mobile-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+        });
+      });
+    </script>
   </body>
 </html>
